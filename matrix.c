@@ -3,8 +3,8 @@
  * Homework 5 – Pointer Operations
  * CSE 220 – Spring 2026
  *
- * Name:
- * SBU ID:
+ * Name:Shriyans Singh
+ * SBU ID:114807762
  */
 
 #include "matrix.h"

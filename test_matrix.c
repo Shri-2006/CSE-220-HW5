@@ -1,4 +1,10 @@
-
+/* wasn't sure if was needed in all files so i just copy pasted it
+ * Homework 5 – Pointer Operations
+ * CSE 220 – Spring 2026
+ *
+ * Name:Shriyans Singh
+ * SBU ID:114807762
+ */
 #include <criterion/criterion.h>
 #include "matrix.h"
 
