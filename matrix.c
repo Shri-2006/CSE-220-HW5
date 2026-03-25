@@ -71,15 +71,39 @@ int HadamardProduct(const int D[6],
                     const int N[D[2]][D[3]],
                     int A[D[4]][D[5]])
 {
-
+  //matrixM
     int mRows = D[0];
     int mCols = D[1];
-
+  //Matrix N
     int nRows = D[2];
     int nCols = D[3];
-
+  //Matrix A ( result)
     int aRows = D[4];
     int aCols = D[5];
+
+
+    //if m<n, then mrows. else nrows. same with cols. Basically, we do it on the min of the 2 matrices.
+    int overLappingRows = mRows < nRows ? mRows : nRows;
+    int overLappingCol = mCols < nCols ? mCols : nCols;
+    //clear A of garbage
+    for(int i=0;i<3;i++){
+     for(int j=0; j<m;j++){
+       *(*(A+i) +j) = 0;
+      }
+    }
+
+    //now multiply each element in each overlap, and store in A
+    for(int i=0;i<overLappingRows;i++){
+      for(int j=0; j<overLappingCol;j++){
+        int valueOfM = *(*(M+i) +j);
+        int valueOfN = *(*(N+i) +j);
+        *(*(A+i) +j) = valueOfM*valueOfN;
+      }
+    }
+
+
+
+
 
 
     return 0;
