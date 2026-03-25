@@ -86,11 +86,16 @@ int HadamardProduct(const int D[6],
     int overLappingRows = mRows < nRows ? mRows : nRows;
     int overLappingCol = mCols < nCols ? mCols : nCols;
     //clear A of garbage
-    for(int i=0;i<3;i++){
-     for(int j=0; j<m;j++){
+    for(int i=0;i<aRows;i++){
+     for(int j=0; j<aCols;j++){
        *(*(A+i) +j) = 0;
       }
     }
+    //check A >= than overlapping rows and cols else return -1.
+    if(aRows <overLappingRows ||aCols<overLappingCol){
+      return -3;
+    }
+
 
     //now multiply each element in each overlap, and store in A
     for(int i=0;i<overLappingRows;i++){
