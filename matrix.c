@@ -29,8 +29,37 @@ int SparseMatrix(int D[2], int M[D[0]][D[1]],
     int m = max(rows, cols);
 
     int nonZeroCount = 0;
+  //make entire array 0s. MUST USE POINTER DEREFERENCING v2 A[row][i] is equivalent to (*(*(A + row) + i))
+    for(int i=0;i<3;i++){
+      for(int j=0; j<m;j++){
+        *(*(S+i) +j) = 0;
+      }
+    }
 
-    return 0;
+    //using pointers go throuh the matrix and check if there have been more than m nonzero values and if there was, return -1.
+    for(int i=0;i<rows;i++){
+      for(int j=0; j<cols;j++){
+        int val=0;
+        val=*(*(M+i) +j);
+        if(val!=0){
+          if(nonZeroCount>=m){
+            return -1;
+          }
+          //store row index , column index and value index in s[0],s[1],s[2] respectively with nonzerocount in the second array position
+          *(*(S+0) +nonZeroCount) =i;
+          *(*(S+1)+nonZeroCount)=j;
+          *(*(S+2)+nonZeroCount) =val;
+          //increment nonzero after adding a nonzero to the positions
+          nonZeroCount++;
+        }
+
+      }
+    }
+
+
+
+    //if nonzerocount<=m, state the nonzero amount.
+    return nonZeroCount;
 }
 
 
