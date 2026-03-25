@@ -163,12 +163,14 @@ int Multiplication(const int D[6],
         *(*(A+i)+j) = 0;
       }
     }
-
+    //for each row and colum, multiply the overlaps and add to sum, and then add to A
     for(int i=0;i<mRows;i++){
       for(int j=0;j<nCols;j++){
+        int sum=0;  
         for(int x=0;x<overlap;x++){
-          sum+=(*(*(M+i)+x)**(*(N+x)+j));
+          sum+=(*(*(M+i)+x)*(*(N+x)+j));
         }
+        *(*(A+i)+j)=sum;
       }
     }
 
