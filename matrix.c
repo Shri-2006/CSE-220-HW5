@@ -91,12 +91,7 @@ int HadamardProduct(const int D[6],
        *(*(A+i) +j) = 0;
       }
     }
-    /*//check A >= than overlapping rows and cols else return -1.
-    if(aRows <overLappingRows ||aCols<overLappingCol){
-      return -3;
-    }*/
-
-
+    
     //now multiply each element in each overlap, and store in A
     for(int i=0;i<overLappingRows;i++){
       for(int j=0; j<overLappingCol;j++){
@@ -107,23 +102,33 @@ int HadamardProduct(const int D[6],
     }
     //if same size return 1, if a is bigger in some form then return 2 otherwise too small return -3.
     if(mRows==nRows&& mCols==nCols){
-      return 1;
-    }
-    else if(aRows>=mRows&& aCols>=mCols){
-      return 2;
+      if(aRows==mRows&& aCols==mCols){
+        return 1;
+      }
+      else if(aRows>=mRows&& aCols>=mCols){
+        return 2;
+      }
+      else{
+        return -3;
+      }
     }
     else{
-      return -3;
+      //If a has enough space to hold res, return -1 else return -2.
+      if(aRows>= overLappingRows&& aCols>=overLappingCol){
+        return -1;
+      }
+      else{
+        return -2;
+      }
     }
-    }
+  }
 
 
 
 
 
 
-    return 0;
-}
+
 
 
 /*----------------------------------------------------
@@ -143,6 +148,29 @@ int Multiplication(const int D[6],
 
     int aRows = D[4];
     int aCols = D[5];
+    //setting overla
+    int overlap=0;
+    int sum=0;
+    if(mCols<nRows){
+        overlap=mCols;
+    }
+    else{
+      overlap=nRows;
+    }
+    //clear array A of garbage
+    for (int i=0;i<aRows;i++){
+      for(int j=0;j<aCols;j++){
+        *(*(A+i)+j) = 0;
+      }
+    }
+
+    for(int i=0;i<mRows;i++){
+      for(int j=0;j<nCols;j++){
+        for(int x=0;x<overlap;x++){
+          sum+=(*(*(M+i)+x)**(*(N+x)+j));
+        }
+      }
+    }
 
 
     return 0;
