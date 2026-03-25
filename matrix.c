@@ -91,10 +91,10 @@ int HadamardProduct(const int D[6],
        *(*(A+i) +j) = 0;
       }
     }
-    //check A >= than overlapping rows and cols else return -1.
+    /*//check A >= than overlapping rows and cols else return -1.
     if(aRows <overLappingRows ||aCols<overLappingCol){
       return -3;
-    }
+    }*/
 
 
     //now multiply each element in each overlap, and store in A
@@ -104,6 +104,17 @@ int HadamardProduct(const int D[6],
         int valueOfN = *(*(N+i) +j);
         *(*(A+i) +j) = valueOfM*valueOfN;
       }
+    }
+    //if same size return 1, if a is bigger in some form then return 2 otherwise too small return -3.
+    if(mRows==nRows&& mCols==nCols){
+      return 1;
+    }
+    else if(aRows>=mRows&& aCols>=mCols){
+      return 2;
+    }
+    else{
+      return -3;
+    }
     }
 
 
