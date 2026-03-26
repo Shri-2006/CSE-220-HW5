@@ -150,7 +150,7 @@ int Multiplication(const int D[6],
     int aCols = D[5];
     //setting overla
     int overlap=0;
-    int sum=0;
+    //int sum=0;
     if(mCols<nRows){
         overlap=mCols;
     }
@@ -173,10 +173,8 @@ int Multiplication(const int D[6],
         if(i<aRows &&j<aCols){
           *(*(A+i)+j)=sum;
         }
+      }
     }
-
-
-  }
         //if exact match, return 1, if oversized return 2, if too small return -3, 
     if(mCols==nRows){
       if(aRows==mRows&& aCols== nCols){
@@ -262,9 +260,4 @@ int DiagonalSum(const int D[4],
     else{
       return -1;
     }
-
-
-    
-
-    return 0;
 }

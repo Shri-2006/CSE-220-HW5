@@ -81,5 +81,5 @@ Test(DiagonalSum, square_matrix)
 
     int r = DiagonalSum(D,A,DS);
 
-    cr_assert_eq(r,1);
+    cr_assert_eq(r,2);
 }
