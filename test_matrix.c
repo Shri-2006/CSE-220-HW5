@@ -83,3 +83,4 @@ Test(DiagonalSum, square_matrix)
 
     cr_assert_eq(r,2);
 }
+
