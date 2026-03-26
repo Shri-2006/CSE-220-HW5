@@ -7,7 +7,7 @@
  */
 /*
  * Helper function to print a sparse matrix representation
- * Not required for the assignment but useful for testing
+ * Not required for the assignment but useful for testing-WAS SO HELPFUL, IF I DIDN'T HAVE THIS I WOULD HAVE GONE INSANE
  */
 void print_sparse_matrix(int S[3][m], int m) {
     printf("Sparse Matrix Representation (3 x %d):\n", m);

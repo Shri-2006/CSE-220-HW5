@@ -6,7 +6,7 @@
  * SBU ID:114807762
  */
 /*
- * Helper function to print a matrix for testing
+ * Helper function to print a matrix for testing-I literally rewrote the code for programiz bruhhhh
  */
 void print_matrix(const char *name, int *matrix, int rows, int cols) {
     printf("%s (%d x %d):\n", name, rows, cols);
