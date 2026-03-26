@@ -215,7 +215,56 @@ int DiagonalSum(const int D[4],
 
     int dsRows = D[2];
     int dsCols = D[3];
+    int neededrowSize=rows+2;
+    int neededcolSize=0;
+    //calculate neededcolsize
+    if(cols>2){
+      neededcolSize=cols;
+    }
+    else{
+      neededcolSize=2;
+    }
+    //clear matrixDs of garbage
+    for(int i=0;i<dsRows;i++){
+      for(int j=0;j <dsCols;j++){
+        *(*(DS+i)+j)=0;
+      }
+    }
+    //Iterate through entire matrix and check which sum to go to
+    for(int i=0;i<rows;i++){
+      for(int j=0;j<cols;j++){
+        int summedVal = *(*(A+i)+j);
+        //Need Main Diagonal, then Anti-Diagonal, Then Row sum, Then Column Sum
+        if(i==j&& dsRows>0&& dsCols>0){
+          *(*(DS+0)+0)+= summedVal;
+        }
+        if((i+j==(rows-1))&&(rows==cols)){
+          if(dsRows>0&&dsCols>1){
+            *(*(DS+0)+1)+=summedVal;
+          }
+        }
+        if((i+2)<dsRows &&dsCols>0){
+          *(*(DS+i+2)+0)+=summedVal;
+        }
+        if((dsRows>1)&&(j<dsCols)){
+          *(*(DS+1)+j)+=summedVal;
+        }
 
+      }
+    }
+    //if compatible return 1, else if DS oversized return 2, else if too small return -1.
+    if(dsRows==neededrowSize&&dsCols==neededcolSize){
+      return 1;
+    }
+    else if(dsRows>= neededrowSize&& dsCols>= neededcolSize){
+      return 2;
+    }
+    else{
+      return -1;
+    }
+
+
+    
 
     return 0;
 }
