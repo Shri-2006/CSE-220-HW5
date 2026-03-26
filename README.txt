@@ -1,0 +1,1 @@
+So, the tests are similar because i copied and pasted examples, then adjusted them
