@@ -168,14 +168,16 @@ int Multiplication(const int D[6],
       for(int j=0;j<nCols;j++){
         int sum=0;  
         for(int x=0;x<overlap;x++){
-          sum+=(*(*(M+i)+x)*(*(N+x)+j));
+          sum+=(*(*(M+i)+x)*(*(*(N+x)+j)));
         }
         if(i<aRows &&j<aCols){
           *(*(A+i)+j)=sum;
         }
     }
 
-      //if exact match, return 1, if oversized return 2, if too small return -3, 
+
+  }
+        //if exact match, return 1, if oversized return 2, if too small return -3, 
     if(mCols==nRows){
       if(aRows==mRows&& aCols== nCols){
         return 1;
@@ -197,7 +199,6 @@ int Multiplication(const int D[6],
       }
 
     }
-  }
 }
 
 
