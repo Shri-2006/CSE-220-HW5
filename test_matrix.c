@@ -207,3 +207,19 @@ Test(SparseMatrix, test_7)
 
 }
 
+Test(SparseMatrix, test_8)
+{
+    int D[2] = {2,2};
+
+    int M[2][2] = {
+        {1  ,0},
+        {0,-1}
+    };
+
+    int S[2][3];
+
+    int result = SparseMatrix(D,M,S);
+
+    cr_assert_eq(result,2);
+
+}
