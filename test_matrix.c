@@ -303,3 +303,216 @@ Test(HadamardProduct, test_4)
 
     cr_assert_eq(r,-1);
 }
+
+
+Test(HadamardProduct, test_5)
+{
+    int D[6] = {2,2,2,2,2,1};
+
+    int M[2][2] = {
+        {1,1},
+        {1,1}
+    };
+
+    int N[2][2] = {
+        {1,1},
+        {1,1}
+    };
+
+    int A[2][2];
+
+    int r = HadamardProduct(D,M,N,A);
+
+    cr_assert_eq(r,-3);
+}
+Test(HadamardProduct, test_6)
+{
+    int D[6] = {2,3,3,2,2,2};
+
+    int M[2][3] = {
+        {1,1,1},
+        {1,1,1}
+    };
+
+    int N[3][2] = {
+        {0,0},
+        {0,0},
+        {0,0}
+    };
+
+    int A[2][2];
+
+    int r = HadamardProduct(D,M,N,A);
+    //need to check if everything is 0 using criterion, not the print
+    cr_assert_eq(A[0][0],0);
+    cr_assert_eq(r,-1);
+}
+
+Test(HadamardProduct, test_7)
+{
+    int D[6] = {1,1,1,1,1,1};
+
+    int M[1][1] = {
+        {1}
+        
+    };
+
+    int N[1][1] = {
+        {0}
+    };
+
+    int A[1][1];
+
+    int r = HadamardProduct(D,M,N,A);
+   
+
+    cr_assert_eq(r,1);
+}
+
+
+Test(HadamardProduct, test_8)
+{
+    int D[6] = {1,1,1,1,1,1};
+
+    int M[1][1] = {
+        {-1}
+        
+    };
+
+    int N[1][1] = {
+        {-1}
+    };
+
+    int A[1][1];
+
+    int r = HadamardProduct(D,M,N,A);
+   
+    cr_assert_eq(A[0][0],1);
+    cr_assert_eq(r,1);
+}
+
+Test(HadamardProduct, test_9)
+{
+    int D[6] = {1,1,1,1,2,1};
+
+    int M[1][1] = {
+        {1}
+        
+    };
+
+    int N[1][1] = {
+        {0}
+    };
+
+    int A[2][1];
+
+    int r = HadamardProduct(D,M,N,A);
+   
+
+    cr_assert_eq(r,2);
+}
+
+Test(HadamardProduct, test_10)
+{
+    int D[6] = {1,2,2,1,1,1};
+
+    int M[1][2] = {
+        {1,1}
+        
+    };
+
+    int N[2][1] = {
+        {3422312312},
+        {0}
+    };
+
+    int A[1][1];
+
+    int r = HadamardProduct(D,M,N,A);
+   
+    //incorrect thinking:cr_assert_eq(A[0][0],1232);
+    cr_assert_eq(r,-1);
+}
+Test(HadamardProduct, test_11)
+{
+    int D[6] = {1,1,1,1,1,1};
+
+    int M[1][1] = {
+        {1}
+        
+    };
+
+    int N[1][1] = {
+        {999999},
+        
+    };
+
+    int A[1][1];
+
+    int r = HadamardProduct(D,M,N,A);
+    cr_assert_eq(A[0][0],999999);
+    cr_assert_eq(r,1);
+}
+
+Test(HadamardProduct, test_12)
+{
+    int D[6] = {1,1,1,1,1,1};
+
+    int M[1][1] = {
+        {999999}
+        
+    };
+
+    int N[1][1] = {
+        {1},
+        
+    };
+
+    int A[1][1];
+
+    int r = HadamardProduct(D,M,N,A);
+    cr_assert_eq(A[0][0],999999);
+    cr_assert_eq(r,1);
+}
+Test(HadamardProduct, test_13)
+{
+    int D[6] = {1,1,1,1,1,1};
+
+    int M[1][1] = {
+        {-1}
+        
+    };
+
+    int N[1][1] = {
+        {1},
+        
+    };
+
+    int A[1][1];
+
+    int r = HadamardProduct(D,M,N,A);
+    cr_assert_eq(A[0][0],-1);
+    cr_assert_eq(r,1);
+}
+Test(HadamardProduct, test_14)
+{
+    int D[6] = {1,1,1,1,1,1};
+
+    int M[1][1] = {
+        {1}
+        
+    };
+
+    int N[1][1] = {
+        {-1},
+        
+    };
+
+    int A[1][1];
+
+    int r = HadamardProduct(D,M,N,A);
+    cr_assert_eq(A[0][0],-1);
+    cr_assert_eq(r,1);
+}
+
+//Now multiplicationmatrixes tests
