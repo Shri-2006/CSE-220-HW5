@@ -20,6 +20,7 @@ int max(int a, int b)
 /*----------------------------------------------------
   1. Sparse Matrix
 ----------------------------------------------------*/
+
 int SparseMatrix(int D[2], int M[D[0]][D[1]],
                  int S[3][(D[1] > D[0] ? D[1] : D[0])])
 {
@@ -40,7 +41,7 @@ int SparseMatrix(int D[2], int M[D[0]][D[1]],
       }
     }
 
-    //using pointers go throuh the matrix and check if there have been more than m nonzero values and if there was, return -1.
+    //using pointers go throuh the matrix and check if more than m nonzeros, then return -1.
     for(int i=0;i<rows;i++){
       for(int j=0; j<cols;j++){
         int val=0;
@@ -155,9 +156,9 @@ int Multiplication(const int D[6],
 
     int aRows = D[4];
     int aCols = D[5];
-    //setting overla
+    //initializing overlap to 0 at first.
     int overlap=0;
-    //int sum=0;
+    
     if(mCols<nRows){
         overlap=mCols;
     }
