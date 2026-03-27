@@ -215,3 +215,91 @@ Test(SparseMatrix, test_12)
     cr_assert_eq(result,1);
 
 }
+
+
+
+//Now Hadamard Tests
+
+
+Test(HadamardProduct, test_1)
+{
+    int D[6] = {1,1,1,1,1,1};
+
+    int M[2][2] = {
+        {1,1},
+        {1,1}
+    };
+
+    int N[2][2] = {
+        {1,1},
+        {1,1}
+    };
+
+    int A[2][2];
+
+    int r = HadamardProduct(D,M,N,A);
+
+    cr_assert_eq(r,1);
+}
+
+Test(HadamardProduct, test_2)
+{
+    int D[6] = {2,2,2,2,3,3};
+
+    int M[2][2] = {
+        {1,1},
+        {1,1}
+    };
+
+    int N[2][2] = {
+        {1,1},
+        {1,1}
+    };
+
+    int A[3][3];
+
+    int r = HadamardProduct(D,M,N,A);
+
+    cr_assert_eq(r,2);
+}
+Test(HadamardProduct, test_3)
+{
+    int D[6] = {2,2,2,2,1,1};
+
+    int M[2][2] = {
+        {1,1},
+        {1,1}
+    };
+
+    int N[2][2] = {
+        {1,1},
+        {1,1}
+    };
+
+    int A[1][1];
+
+    int r = HadamardProduct(D,M,N,A);
+
+    cr_assert_eq(r,-3);
+}
+Test(HadamardProduct, test_4)
+{
+    int D[6] = {2,3,3,2,2,2};
+
+    int M[2][3] = {
+        {1,1,1},
+        {1,1,1}
+    };
+
+    int N[3][2] = {
+        {1,1},
+        {1,1},
+        {1,1}
+    };
+
+    int A[2][2];
+
+    int r = HadamardProduct(D,M,N,A);
+
+    cr_assert_eq(r,-1);
+}
