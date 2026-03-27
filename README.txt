@@ -1,7 +1,7 @@
 So, the tests are similar because i copied and pasted examples, then adjusted them
 Used a multiplication matric calc from online to do most of the calculations, it was taking too long to figure out the results.
 
-
+SparseMatrix handles 0 rows or 0 cols as return 0.
 
 
 

@@ -5,6 +5,7 @@
  * Name:Shriyans Singh
  * SBU ID:114807762
  */
+#define three 3
 #include <criterion/criterion.h>
 #include "matrix.h"
 
@@ -516,3 +517,339 @@ Test(HadamardProduct, test_14)
 }
 
 //Now multiplicationmatrixes tests
+Test(Multiplication, test_1)
+{
+    int D[6] = {2,2,2,2,2,2};
+
+    int M[2][2] = {
+        {1,1},
+        {1,1}
+    };
+
+    int N[2][2] = {
+        {1,1},
+        {1,1}
+    };
+
+    int A[2][2];
+
+    int r = Multiplication(D,M,N,A);
+
+    cr_assert_eq(r,1);
+}
+
+Test(Multiplication, test_2)
+{   //practicing macros so used three
+    int D[6] = {2,three,3,2,2,2};
+
+    int M[2][3] = {
+        {1,1,1},
+        {1,1,1}
+    };
+
+    int N[3][2] = {
+        {1,1},
+        {1,1},
+        {2,23213}
+    };
+
+    int A[2][2];
+
+    int r = Multiplication(D,M,N,A);
+
+    cr_assert_eq(r,1);
+}
+Test(Multiplication, test_3){
+    int D[6] = {2,three,2,2,2,2};
+
+    int M[2][3] = {
+        {1,1,1},
+        {1,1,1}
+    };
+
+    int N[2][2] = {
+        {1,1},
+        {1,1}
+    };
+
+    int A[2][2];
+
+    int r = Multiplication(D,M,N,A);
+
+    cr_assert_eq(r,-1);
+}
+Test(Multiplication, test_4){
+    int D[6] = {2,three,2,2,1,1};
+
+    int M[2][3] = {
+        {1,1,1},
+        {1,1,1}
+    };
+
+    int N[2][2] = {
+        {1,1},
+        {1,1}
+    };
+
+    int A[1][1];
+
+    int r = Multiplication(D,M,N,A);
+
+    cr_assert_eq(r,-2);
+}
+Test(Multiplication, test_5_typo){
+    int D[6] = {2,three,2,2,10,10};
+
+    int M[2][3] = {
+        {1,1,1},
+        {1,1,1}
+    };
+
+    int N[2][2] = {
+        {1,1},
+        {1,1}
+    };
+
+    int A[10][10];
+
+    int r = Multiplication(D,M,N,A);
+
+    cr_assert_eq(r,-1);
+}
+Test(Multiplication, test_5){
+    int D[6] = {2,2,2,2,10,10};
+
+    int M[2][2] = {
+        {1,1},
+        {1,1}
+    };
+
+    int N[2][2] = {
+        {1,1},
+        {1,1}
+    };
+
+    int A[10][10];
+
+    int r = Multiplication(D,M,N,A);
+
+    cr_assert_eq(r,2);
+}
+Test(Multiplication, test_6){
+    int D[6] = {1,2,2,1,1,1};
+
+    int M[1][2] = {
+        {10,1}
+    };
+
+    int N[2][1] = {
+        {1},
+        {1}
+    };
+
+    int A[1][1];
+
+    int r = Multiplication(D,M,N,A);
+
+    cr_assert_eq(r,1);
+    cr_assert_eq(A[0][0], 11);
+}
+
+Test(Multiplication, test_7){
+    int D[6] = {2,1,1,2,2,2};
+
+    int M[2][1] = {
+        {2},
+        {2}
+    };
+
+    int N[1][2] = {
+        {2,2}
+    };
+
+    int A[2][2];
+
+    int r = Multiplication(D,M,N,A);
+
+    cr_assert_eq(r,1);
+    cr_assert_eq(A[0][0], 4);
+}
+
+
+
+
+Test(Multiplication, test_8){
+    int D[6] = {1,1,1,1,1,1};
+
+    int M[1][1] = {
+        {2}
+    };
+
+    int N[1][1] = {
+        {20231232}
+    };
+
+    int A[1][1];
+
+    int r = Multiplication(D,M,N,A);
+
+    cr_assert_eq(r,1);
+    cr_assert_eq(A[0][0], (20231232*2));
+}
+
+
+
+
+
+Test(Multiplication, test_9){
+    int D[6] = {2,2,2,2,2,2};
+
+    int M[2][2] = {
+        {0,0},{0,0}
+    };
+
+    int N[2][2] = {
+        {0,0},{0,0}
+    };
+
+    int A[2][2];
+
+    int r = Multiplication(D,M,N,A);
+
+    cr_assert_eq(r,1);
+    cr_assert_eq(A[0][0], (0));
+}
+Test(Multiplication, test_10){
+    int D[6] = {2,2,2,2,2,2};
+
+    int M[2][2] = {
+        {-1,-2},{-1,-2}
+    };
+
+    int N[2][2] = {
+        {-1,-1},{-1,-1}
+    };
+
+    int A[2][2];
+
+    int r = Multiplication(D,M,N,A);
+
+    cr_assert_eq(r,1);
+    cr_assert_eq(A[0][0], (3));
+}
+
+Test(Multiplication, test_11){
+    int D[6] = {2,2,2,2,2,100};
+
+    int M[2][2] = {
+        {-1,-2},{-1,-2}
+    };
+
+    int N[2][2] = {
+        {-1,-1},{-1,-1}
+    };
+
+    int A[2][100];
+
+    int r = Multiplication(D,M,N,A);
+
+    cr_assert_eq(r,2);
+   
+}
+Test(Multiplication, test_12){
+    int D[6] = {2,2,2,2,200,2};
+
+    int M[2][2] = {
+        {-1,-2},{-1,-2}
+    };
+
+    int N[2][2] = {
+        {-1,-1},{-1,-1}
+    };
+
+    int A[200][2];
+
+    int r = Multiplication(D,M,N,A);
+
+    cr_assert_eq(r,2);
+   
+}
+
+Test(Multiplication, test_13){
+    int D[6] = {2,2,2,2,200,100};
+
+    int M[2][2] = {
+        {-1,-2},{-1,-2}
+    };
+
+    int N[2][2] = {
+        {-1,-1},{-1,-1}
+    };
+
+    int A[200][100];
+
+    int r = Multiplication(D,M,N,A);
+
+    cr_assert_eq(r,2);
+   
+}
+
+Test(Multiplication, test_14){
+    int D[6] = {1,1,1,1,1,1};
+
+    int M[1][1] = {
+        {-2}
+    };
+
+    int N[1][1] = {
+        {-1}
+    };
+
+    int A[1][1];
+
+    int r = Multiplication(D,M,N,A);
+
+    cr_assert_eq(r,1);
+    cr_assert_eq(A[0][0],2);
+   
+}
+Test(Multiplication, test_15){
+    int D[6] = {1,1,1,1,1,1};
+
+    int M[1][1] = {
+        {2}
+    };
+
+    int N[1][1] = {
+        {-1}
+    };
+
+    int A[1][1];
+
+    int r = Multiplication(D,M,N,A);
+
+    cr_assert_eq(r,1);
+    cr_assert_eq(A[0][0],-2);
+   
+}
+Test(Multiplication, test_16){
+    int D[6] = {1,1,1,1,1,1};
+
+    int M[1][1] = {
+        {2}
+    };
+
+    int N[1][1] = {
+        {1}
+    };
+
+    int A[1][1];
+
+    int r = Multiplication(D,M,N,A);
+
+    cr_assert_eq(r,1);
+    cr_assert_eq(A[0][0],2);
+   
+}
+
+//Now Diagonalsum Tests

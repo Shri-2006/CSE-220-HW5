@@ -29,6 +29,10 @@ int SparseMatrix(int D[2], int M[D[0]][D[1]],
     int m = max(rows, cols);
 
     int nonZeroCount = 0;
+    //edge case of invalid rows and cols
+    if(rows<=0||cols<=0){
+      return 0;
+    }
   //make entire array 0s. MUST USE POINTER DEREFERENCING v2 A[row][i] is equivalent to (*(*(A + row) + i))
     for(int i=0;i<3;i++){
       for(int j=0; j<m;j++){
@@ -97,7 +101,10 @@ int HadamardProduct(const int D[6],
       for(int j=0; j<overLappingCol;j++){
         int valueOfM = *(*(M+i) +j);
         int valueOfN = *(*(N+i) +j);
-        *(*(A+i) +j) = valueOfM*valueOfN;
+        if(i<aRows&&j<aCols){
+          *(*(A+i) +j) = valueOfM*valueOfN;
+        }
+        
       }
     }
     //if same size return 1, if a is bigger in some form then return 2 otherwise too small return -3.
