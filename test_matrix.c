@@ -935,17 +935,17 @@ Test(DiagonalSum, test_5)
 }
 Test(DiagonalSum, test_6)
 {
-    int D[4] = {2,2,4,2};
+    int D[4] = {2,2,2,4};
 
     int A[2][2] = {
         {1,1},{1,1}
     };
 
-    int DS[4][2];
+    int DS[2][4];
 
     int r = DiagonalSum(D,A,DS);
 
-    cr_assert_eq(r,1);
+    cr_assert_eq(r,-1);
 }
 
 Test(DiagonalSum, test_7)
