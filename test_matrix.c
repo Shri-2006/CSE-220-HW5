@@ -853,3 +853,175 @@ Test(Multiplication, test_16){
 }
 
 //Now Diagonalsum Tests
+Test(DiagonalSum, test_1)
+{
+    int D[4] = {2,2,4,2};
+
+    int A[2][2] = {
+        {1,1},
+        {1,1}
+    };
+
+    int DS[4][2];
+
+    int r = DiagonalSum(D,A,DS);
+
+    cr_assert_eq(r,1);
+}
+
+
+Test(DiagonalSum, test_2)
+{
+    int D[4] = {2,2,400,2000};
+
+    int A[2][2] = {
+        {1,1},
+        {1,1}
+    };
+
+    int DS[400][2000];
+
+    int r = DiagonalSum(D,A,DS);
+
+    cr_assert_eq(r,2);
+}
+Test(DiagonalSum, test_3)
+{
+    int D[4] = {2,2,3,2};
+
+    int A[2][2] = {
+        {1,1},
+        {1,1}
+    };
+
+    int DS[3][2];
+
+    int r = DiagonalSum(D,A,DS);
+
+    cr_assert_eq(r,-1);
+}
+
+
+Test(DiagonalSum, test_4)
+{
+    int D[4] = {2,2,3,1};
+
+    int A[2][2] = {
+        {1,1},
+        {1,1}
+    };
+
+    int DS[3][1];
+
+    int r = DiagonalSum(D,A,DS);
+
+    cr_assert_eq(r,-1);
+}
+Test(DiagonalSum, test_5)
+{
+    int D[4] = {2,3,3,3};
+
+    int A[2][3] = {
+        {1,1,1},
+        {1,1,1}
+        
+    };
+
+    int DS[3][3];
+
+    int r = DiagonalSum(D,A,DS);
+    cr_assert_eq(DS[1][1],2);
+    cr_assert_eq(r,-1);
+}
+Test(DiagonalSum, test_6)
+{
+    int D[4] = {2,2,4,2};
+
+    int A[2][2] = {
+        {1,1},{1,1}
+    };
+
+    int DS[4][2];
+
+    int r = DiagonalSum(D,A,DS);
+
+    cr_assert_eq(r,1);
+}
+
+Test(DiagonalSum, test_7)
+{
+    int D[4] = {2,2,4,2};
+
+    int A[2][2] = {
+        {-1,-1},{1,-1}
+    };
+
+    int DS[4][2];
+
+    int r = DiagonalSum(D,A,DS);
+    cr_assert_eq(DS[1][0],0);
+    cr_assert_eq(r,1);
+}
+
+Test(DiagonalSum, test_8_typo_from_intended)
+{
+    int D[4] = {1,10,2,10};
+
+    int A[1][10] = {
+        {-1,-1,2,-2,3,-3,4,-4,5,-6}
+    };
+
+    int DS[2][10];
+
+    int r = DiagonalSum(D,A,DS);
+   // cr_assert_eq(DS[1][0],-1);
+    cr_assert_eq(r,-1);
+}
+Test(DiagonalSum, test_8)
+{
+    int D[4] = {1,10,3,10};
+
+    int A[1][10] = {
+        {-1,-1,2,-2,3,-3,4,-4,5,-6}
+    };
+
+    int DS[3][10];
+
+    int r = DiagonalSum(D,A,DS);
+    cr_assert_eq(DS[1][0],-1);
+    cr_assert_eq(r,1);
+}
+
+Test(DiagonalSum, test_9)
+{
+    int D[4] = {2,2,1,1};
+
+    int A[2][2] = {
+        {-1,-1},
+        {2,-2}
+    };
+
+    int DS[1][1];
+
+    int r = DiagonalSum(D,A,DS);
+    
+    cr_assert_eq(r,-1);
+}
+
+Test(DiagonalSum, test_10)
+{
+    int D[4] = {2,4,4,4};
+
+    int A[2][4] = {
+        {-1,-1,3,-3},
+        {2,-2,50,-50}
+    };
+
+    int DS[4][4];
+
+    int r = DiagonalSum(D,A,DS);
+    
+    cr_assert_eq(r,1);
+    cr_assert_eq(DS[0][1],0);
+}
+
